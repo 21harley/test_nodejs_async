@@ -1,3 +1,5 @@
+const axios = require("axios");
+
 /*
 - Mediante la libreria: axios
 - Hacer una petición de tipo: GET
@@ -14,8 +16,14 @@
 
 
 async function fnTest() {
-  //...
-  return 
+  const url = 'https://jsonplaceholder.typicode.com/posts';
+  try {
+      const response = await axios.get(url);
+      response.data=response.data[1];
+      return response.data;
+  } catch (error) {
+      return error;
+  }
 }
 
 module.exports = fnTest;
